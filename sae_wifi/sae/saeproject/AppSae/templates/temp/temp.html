@@ -1,0 +1,25 @@
+<!-- temp/temp.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Capteurs</title>
+</head>
+<body>
+    <h2>Liste des Capteurs</h2>
+    <ul>
+        {% for capteur in liste_capteurs %}
+            <li>
+                <strong>Capteur:</strong> {{ capteur.id }}<br>
+                <strong>Temperature:</strong> {{ capteur.température}} <br>
+                <a href="/deleteT/">Supprimer</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="/createT/">Ajouter un Capteur</a>
+    <a href="/index/">Acceuil</a>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTHENTIFICATION</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: black;
+        }
+        .welcome-container {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+            margin-bottom: 20px;
+        }
+        .image-container {
+            width: 100px;
+            margin-right: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        form {
+            background-color: black;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: white;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: white;
+            color: black;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <div class="image-container">
+            <img src="/static/logo.png" alt="Logo">
+        </div>
+        <div>Cygogne Telecom</div>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        <h2 style="color: white;">Connexion</h2>
+        <label for="username">Nom d'utilisateur :</label>
+        <input type="text" name="username" value="toto" required>
+        <label for="password">Mot de passe :</label>
+        <input type="password" name="password" value="toto" required>
+
+        <button type="submit">Se connecter</button>
+    </form>
+</body>
+</html>

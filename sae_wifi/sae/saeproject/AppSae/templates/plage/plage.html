@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PLAGE HORRAIRE</title>
+</head>
+<body>
+    <form method="post" action="/recuperer_date/" id="plage-form">
+        {% csrf_token %}
+        <label for="heure_debut">Saisissez l'heure du début de la plage horaire :</label>
+        <input type="time" id="heure_debut" name="heure_debut">
+
+        <label for="heure_fin">Saisissez l'heure de fin de la plage horaire :</label>
+        <input type="time" id="heure_fin" name="heure_fin">
+
+        <button type="submit">Envoyer</button>
+    </form>
+
+    {% if plage_horaire %}
+        <p> Plage horaire : {{ plage_horaire }}</p>
+    {% endif %}
+
+    <p id="heure-actuelle"></p>
+
+    <a href="/index/">Accueil</a>
+
+   <script>
+    function mettreAJourHeureActuelle() {
+        var maintenant = new Date();
+        var heures = maintenant.getHours().toString().padStart(2, '0');
+        var minutes = maintenant.getMinutes().toString().padStart(2, '0');
+        var secondes = maintenant.getSeconds().toString().padStart(2, '0');
+
+        var heureActuelle = heures + ':' + minutes + ':' + secondes;
+        document.getElementById('heure-actuelle').innerText = 'Heure actuelle : ' + heureActuelle;
+
+        // Rafraîchit la page toutes les 10 secondes
+        setTimeout(function() {
+            location.reload();
+        }, 10000);
+    }
+
+    // Actualise l'heure toutes les secondes
+    setInterval(mettreAJourHeureActuelle, 1000);
+</script>
+
+
+</body>
+</html>

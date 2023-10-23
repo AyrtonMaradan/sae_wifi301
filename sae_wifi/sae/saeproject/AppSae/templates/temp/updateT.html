@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <title>Update temp</title>
+</head>
+<body>
+  <form method="post" action="/temp/traitementupdateT/{{id}}/s">
+    {% csrf_token %}
+    {{ form.as_ul }}
+      <input type="submit" value="envoyer les données"\>
+  </form>
+<div class="item-buttons">
+<a href="/temp">Retour</a>
+</div>
+</html>
